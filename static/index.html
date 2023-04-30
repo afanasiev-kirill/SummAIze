@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+    <title>SummAIze</title>
+    <link rel="icon" href="{{ url_for('static', filename='ICON.jpg') }}">
+</head>
+<body>
+    <div id="container">
+
+        <div id="header">
+            <a href="index.html"><img src="{{ url_for('static', filename='summaize-logo.png') }}" alt="LOGO" id="logo"></a>
+        </div>
+
+        <div id="body">
+            <form action={{url_for('summAIze')}} method="POST">
+            
+                <div id="input">
+                    <input name="data" id="input-text" placeholder="Enter text here...">
+                </div>
+                <!-- Radio buttons to select between youtube and file upload -->
+                <div id="radio">
+                    <input type="radio" id="youtube" name="summary_type" value="0" onclick="youtube()">Youtube
+                    <input type="radio" id="file" name="summary_type" value="1" onclick="file()">File
+                </div>
+                <div id="output">
+                    <textarea name="output" id="output-text" placeholder="Summary will appear here..." readonly>{{summary}}</textarea>
+                </div>
+
+                <div id="buttons">
+                    <button type="submit" id="summarize" onclick="summarize()">Summarize</button>
+                    <button type="button" id="clear">Clear</button>
+                </div>
+
+            </form>
+
+        <div id="footer">
+            <p>Copyright &copy; 2023 summAIze. All Rights Reserved</p>
+        </div>
+
+    </div>
+</body>
+</html>
